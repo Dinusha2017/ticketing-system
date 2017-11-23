@@ -24,7 +24,7 @@ mongoose.connection.on('error', (err) => {
 });
 
 //adding static directories
-app.use(express.static(path.join(__dirname + 'public')));
+app.use(express.static(__dirname + 'public'));
 
 //cross domain talk support
 app.use(cors());
