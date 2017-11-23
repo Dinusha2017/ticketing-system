@@ -26,6 +26,11 @@ const UserSchema=new Schema({
         type: String,
         required: [true, 'Password is required!'],
         trim: true
+    },
+    cardNo: {           
+        type: Number,
+        required: true,
+        trim: true
     }
 });
 
