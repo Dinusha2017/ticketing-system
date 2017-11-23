@@ -5,13 +5,14 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 //mongoose.Promise = require('bluebird');
 const config = require('./src/config/database.js');
+const autoIncrement = require('mongoose-auto-increment');
 
 //app config
 const app = express();
 const port = 3000;
 
 //database connection string
-mongoose.connect(config.database);
+var connection = mongoose.connect(config.database);
 
 //database connection success
 mongoose.connection.on('connected', () =>{
@@ -22,6 +23,8 @@ mongoose.connection.on('connected', () =>{
 mongoose.connection.on('error', (err) => {
 	console.log("Database Error Occured : " + err);
 });
+
+autoIncrement.initialize(connection);
 
 //adding static directories
 app.use(express.static(__dirname + 'public'));

@@ -17,17 +17,17 @@ const TourSchema=new Schema({
         type: String,
         trim: true
     },
-    date: {
-        type: Date,
-        required: [true, 'Date is required!'],
-        trim: true
-    },
-    startTime: {
+    // date: {
+    //     type: Date,
+    //     required: [true, 'Date is required!'],
+    //     trim: true
+    // },
+    startDateTime: {
         type: Date,
         required: [true, 'Start Time is required!'],
         trim: true
     },
-    endTime: {
+    endDateTime: {
         type: Date,
         trim: true
     },
@@ -41,7 +41,7 @@ const TourSchema=new Schema({
         ref: 'Route'
     },
     nicNo: {
-        type: Schema.Types.ObjectId,
+        type: String,
         required : [true, 'NIC is required!'],
         ref: 'User'
     }

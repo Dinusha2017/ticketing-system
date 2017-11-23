@@ -31,6 +31,10 @@ const UserSchema=new Schema({
         type: Number,
         required: true,
         trim: true
+    },
+    lastTourId: {
+        type: String,
+        trim: true
     }
 });
 

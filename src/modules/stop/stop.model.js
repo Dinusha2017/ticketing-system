@@ -1,25 +1,26 @@
 const mongoose = require('mongoose');
 const autoIncrement = require('mongoose-auto-increment');
 
-const RouteSchema=new Schema({
-    routeId: {
+const StopSchema=new Schema({
+    stopId: {
             type: String,
             unique: true,
             required: true,
             trim: true
     },
-    routeNo: {
+    routeId: {
         type: String,
         required: [true, 'Route No is required!'],
         trim: true
     },
-    description: {
+    stopLocation: {
         type: String,
+        required: [true, 'Location of Stop is required!'],
         trim: true
     },
-    stopCount: {
+    stopNo: {
         type: Number,
-        required: true,
+        required: [true, 'Number allocated to stop is required!'],
         trim: true
     }
     // stops: [{
@@ -29,13 +30,13 @@ const RouteSchema=new Schema({
     // }]
 });
 
-const Route = mongoose.model('Route', RouteSchema);
+const Stop = mongoose.model('Stop', StopSchema);
 
-RouteSchema.plugin(autoIncrement.plugin, {
-    model: 'Route',
-    field: 'routeId',
+StopSchema.plugin(autoIncrement.plugin, {
+    model: 'Stop',
+    field: 'stopId',
     startAt: 1000,
     incrementBy: 1
 });
 
-module.exports = Route;
+module.exports = Stop;

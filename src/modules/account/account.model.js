@@ -17,7 +17,7 @@ const AccountSchema=new Schema({
         trim: true
     },
     nicNo: {
-        type: Schema.Types.ObjectId,
+        type: String,
         required : [true, 'NIC is required!'],
         ref: 'User'
     }
